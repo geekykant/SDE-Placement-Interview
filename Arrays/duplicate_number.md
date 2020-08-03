@@ -5,7 +5,7 @@ Input: [1,3,4,2,2]
 Output: 2
 ```
 
-**C++**
+**C++ (Best)**
 ```cpp
 int findDuplicate(vector<int>& nums) {
 	for (int i = 0; i < nums.size(); i++)
@@ -17,7 +17,7 @@ int findDuplicate(vector<int>& nums) {
 }
 ```
 
-**Python**
+**Python (Best)**
 ```python
 def findDuplicate(nums):
     for i in range(len(nums)):
@@ -26,4 +26,10 @@ def findDuplicate(nums):
         else:
             return abs(nums[i]);
     return None
+```
+
+**Python**
+```python
+def findDuplicate(nums):
+    return (sum(nums)-sum(set(nums)))/(len(nums)-len(set(nums)))
 ```
