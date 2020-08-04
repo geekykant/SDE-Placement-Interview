@@ -6,7 +6,25 @@ Input: arr[] = {3, 1, 3}
 Output: Missing = 2, Repeating = 3
 ```
 
-**CPP (Best)**
+**CPP (Best/Simple)**
+```cpp
+void findMissingDuplicate(vector<int>& nums) {
+	map<int, int> mapcount;
+
+	for (int i = 0; i < nums.size(); i++)
+		if (mapcount[nums[i]] == false)
+			mapcount[nums[i]] = 1;
+		else
+			cout << "Repeating: " << nums[i] << " ";
+
+	for (int i = 1; i <= nums.size(); i++)
+		if (mapcount[i] == 0)
+			cout << "Missing: " << i;
+}
+
+```
+
+**CPP**
 ```cpp
 void findMissingDuplicate(vector<int>& nums) {
 	for (int i = 0; i < nums.size(); i++)
