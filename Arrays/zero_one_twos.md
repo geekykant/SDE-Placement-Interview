@@ -7,8 +7,8 @@ Here, we will use the integers 0, 1, and 2 to represent the color red, white, an
 Note: You are not suppose to use the library's sort function for this problem.
 
 ```
-Input: [2,0,2,1,1,0]
-Output: [0,0,1,1,2,2]
+Input: [2,0,2,1,1,0,2]
+Output: [0,0,1,1,2,2,2]
 ```
 
 **Python (Best)**
