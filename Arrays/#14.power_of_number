@@ -1,0 +1,46 @@
+# #14. Pow(x, n)
+
+Implement pow(x, n), which calculates x raised to the power n (xn).
+
+```
+Input: 2.00000, -2
+Output: 0.25000
+Explanation: 2-2 = 1/22 = 1/4 = 0.25
+
+Input: 2.00000, 10
+Output: 1024.00000
+```
+
+**Python (Best - LogN method)**
+```python
+def myPow(x,n):
+    if n < 0:
+        x = 1 / x
+        n = -n
+    pow = 1
+    while n:
+        if n & 1:
+            pow *= x
+        x *= x
+        n >>= 1
+    return pow
+```
+
+**Python (Extra)**
+```python
+def myPow(x,n):
+    if abs(x) < 1e-40: return 0 
+    if n == 0: return 1
+    if n < 0: return myPow(1/x, -n)
+    lower = myPow(x, n//2)
+    if n % 2 == 0: return lower*lower
+    if n % 2 == 1: return lower*lower*x
+```
+
+**Explained**
+The main idea of solution is to use as much multiplications as possible, for example how can we evaluate x^20? We can just multiply x in loop 20 times, but we also can evaluate x^10 and multiply it by itself! Similarly, x^10 = x^5 * x^5. Now we have odd power, but it is not a problem, we evaluate x^5 = x^2 * x^2 * x. We also need to deal with some border cases, here is the full algorithm:
+
+If we have very small value of x we can directly return 0, the smallest value of float is 1.175494 × 10^(-38).
+If we have n = 0, return 1.
+If we have negative power, return positive power of 1/x.
+Now, we have two cases: for even and for odd n, where we evaluate power n//2.
