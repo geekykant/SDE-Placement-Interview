@@ -1,4 +1,4 @@
-# Software Development & Data Structure Interview Questions
+# Data Structure Interview Questions
 
 This is the collation of questions asked for Interviews mostly for SDE's. Also helpful to cover Data Structures at a strech.<br>
 **Questions Link - https://bit.ly/takeUforward**
