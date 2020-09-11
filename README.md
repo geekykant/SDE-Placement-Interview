@@ -8,6 +8,7 @@ Only start doing these problems if you feel you are comfortable with solving bas
 ## Coding Topics
 
 - [Arrays](/Arrays)
+- [Backtracking](/Backtracking)
 - [DP](DP)
 - [Greedy](/Greedy)
 - [Hashing](/Hashing)
