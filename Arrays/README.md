@@ -53,5 +53,17 @@ void reverseArray(int arr[], int n) {
 #4. Left rotate an array by a number (m)
 
 ```cpp
+void leftRotate(int arr[], int n, int m) {
+	int new_arr[n];
 
+	for (int i = 0; i < n; i++) {
+		int pos = (i - m) % 4;
+		if (pos < 0)
+			pos += n;
+		
+		new_arr[pos] = arr[i];
+	}
+
+	printSolution(new_arr, n);
+}
 ```
