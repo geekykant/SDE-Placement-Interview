@@ -59,3 +59,16 @@ int fact(int n, int val = 1) {
 	return fact(n - 1, n * val);
 }
 ```
+
+#4. Check for palindrome
+
+```cpp
+bool isPalindrome(string s, int start, int end) {
+	if (start >= end) return true;
+
+	if (s[start] != s[end])
+		return false;
+
+	return isPalindrome(s, start + 1, end - 1);
+}
+```
