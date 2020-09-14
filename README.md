@@ -14,6 +14,7 @@ Only start doing these problems if you feel you are comfortable with solving bas
 - [Hashing](/Hashing)
 - [LinkedList](/LinkedList)
 - [Math](/Math)
+- [Recursion](/Recursion)
 - [Sorting](/Sorting)
 
 You are welcome to contribute questions and follow up with more data structures or easier solutions.
