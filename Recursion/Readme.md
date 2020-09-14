@@ -1,4 +1,4 @@
-# Recusion - Basic Notes
+# Recursion - Basic Notes
 
 Recursion is a function which calls itself. It's added up in memory as stacks and is generally used to write codes that has loops.
 DP & Backtracking makes use of recusion as the fundamentals to proceed with solutions.
