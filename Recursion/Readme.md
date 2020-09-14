@@ -72,3 +72,13 @@ bool isPalindrome(string s, int start, int end) {
 	return isPalindrome(s, start + 1, end - 1);
 }
 ```
+
+#5. Sum of digits of Number - Recursion 
+```cpp
+int digitsSum(int num, int sum = 0) {
+	if (num == 0)
+		return sum;
+
+	return digitsSum(num / 10, num % 10 + sum);
+}
+```
