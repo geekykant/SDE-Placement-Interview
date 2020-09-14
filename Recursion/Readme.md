@@ -39,4 +39,12 @@ void fun(int n) {
 	cout << n;
 }
 ```
+**Better code (with T-Elimination)**
+```cpp
+void fun(int n, int k = 1) {
+	if (n == 0) return;
 
+	cout << k;
+	fun(n - 1, k + 1);
+}
+```
