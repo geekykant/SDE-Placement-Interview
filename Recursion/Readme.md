@@ -48,3 +48,14 @@ void fun(int n, int k = 1) {
 	fun(n - 1, k + 1);
 }
 ```
+
+#3. Factorial of a number
+
+```cpp
+int fact(int n, int val = 1) {
+	if (n == 0) 
+		return val;
+
+	return fact(n - 1, n * val);
+}
+```
