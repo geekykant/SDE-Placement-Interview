@@ -1,7 +1,7 @@
 # Hashing - Used for search, insert and delete only
 
-Sorting Data & Near Value data - AVL Trees & Red Black Trees (No hashing)
-Prefix searching - Trie (Efficient information reTrieval data structure)
+#### For Sorting Data & Near Value data - AVL Trees & Red Black Trees (No hashing)
+#### Prefix searching - Trie data structure
 
 ### Applications of Hashing
 1. Dictionaries
