@@ -82,3 +82,13 @@ int digitsSum(int num, int sum = 0) {
 	return digitsSum(num / 10, num % 10 + sum);
 }
 ```
+
+#6. Find nCr
+
+```cpp
+float ncr(float n, float c) {
+	if (c == 1) 
+		return n;
+	return n * ncr(n - 1, c - 1) / c;
+}
+```
