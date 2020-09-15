@@ -106,7 +106,7 @@ Clustering (cluttering in linear probing having same hash)
 
 Expected no. of probes required = 1/(1 - alpha)
 
-Deleted slots (-2) -> point to dummy node
+Deleted slots (-2) -> point to dummy node\
 Empty slots (-1) -> point to NULL
 
 ## Unordered Set
@@ -142,8 +142,8 @@ cout<<s.empty(); //check if empty
 
 They are used to store key-value pair.
 
-Map - based on Red Black Tree (stored in order)
-Unordered map - based on Hashing
+#### Map - based on Red Black Tree (stored in order)
+#### Unordered map - based on Hashing
 
 ```cpp
 unordered_map<string, int> m;
