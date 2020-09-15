@@ -108,3 +108,53 @@ Expected no. of probes required = 1/(1 - alpha)
 
 Deleted slots (-2) -> point to dummy node
 Empty slots (-1) -> point to NULL
+
+## Unordered Set
+
+#### set - based on Red Black Trees
+#### unordered_set - based on Hashing
+
+- An element CANNOT be more than once on an unordered_set
+
+```cpp
+unordered_std<int> s;
+s.insert(10);
+s.insert(32);
+s.erase(32); 
+
+cout<<s.count(10); //1
+cout<<s.size();
+
+for(auto it=s.begin(); it != s.end(); it++)
+	cout<<(*it)<<" ";
+
+if(s.find(10) == s.end())
+	cout<<"Not found";
+else
+	cout<<"Found";
+
+s.erase(s.begin(), s.end());
+cout<<s.size();
+cout<<s.empty(); //check if empty
+```
+
+## Unordered Map
+
+They are used to store key-value pair.
+
+Map - based on Red Black Tree (stored in order)
+Unordered map - based on Hashing
+
+```cpp
+unordered_map<string, int> m;
+
+m["geeky"] = 20;
+m.insert({"courses", 40});
+
+for(auto x: m)
+	cout<< x.first <<" "<< x.second;
+
+m.erase("geeky");
+m.erase(m.begin());
+m.erase(m.begin(), m.end());
+```
