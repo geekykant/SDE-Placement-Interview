@@ -18,10 +18,10 @@ eg: 0-5 [1,0,0,0,1,0]
 *Hashing function - takes large value and does the magic to get small value to store in Hash Table.*
 
 Best hashing function
--> should always match BIG key -> small
--> should generate from 0 to m-1
--> O(1) for integers and O(str_len) for large keys (strings)
--> should uniformly distribute large keys
+- should always match BIG key -> small
+- should generate from 0 to m-1
+- O(1) for integers and O(str_len) for large keys (strings)
+- should uniformly distribute large keys
 
 **Collisions are bound to happend in hashing**. To prevent collision,
 1. **Chaining** (We make a chain of colliding items)
@@ -32,10 +32,23 @@ Load factor (alpha) = (no of keys to be inserted) / (no of slots in hash table) 
 (should be <= 1)
 ```
 
+### Chaining vs Open Addressing
+
+| Chaining  | Open Addressing |
+| ------------- | ------------- |
+| Hash table never fills | Table may become full & requires resizing  |
+| Less sensitive to hash functions  | Extra care for clustering  |
+| Poor Cache Performance  | **Cache friendly**  |
+| Extra space for links  | Extra space might be required for same performance  |
+| Performance for chaining worst comparisons - (1 + alpha)  | 1/(1 - alpha)  |
+
+**Better - Chaining** (Best performance & less clusters)<br>
+Open Addressing is only good for caching and if keys length is known in advance.
+
 Data structure for storing chains
--> Linked list (O(l) for search, insert, delete) (NOT cache friendly)
--> Dynamic sized arrays (vectors) (cache friendly)
--> Self balancing BST (AVL Tree, Red Black Tree) - O(logl) for search, insert, delete - (NOT cache friendly)
+- Linked list (O(l) for search, insert, delete) (NOT cache friendly)
+- Dynamic sized arrays (vectors) (cache friendly)
+- Self balancing BST (AVL Tree, Red Black Tree) - O(logl) for search, insert, delete - (NOT cache friendly)
 
 ```cpp
 //Creating a custom hashmap
@@ -73,9 +86,8 @@ struct MyHash{
 ```
 
 ## Open Addressing
-
--> No. of slots in hash table >= no. of keys to be inserted
--> Cache friendly
+- No. of slots in hash table >= no. of keys to be inserted
+- Cache friendly
 
 Linear Probing - linearly search and insert hash to the next free slot.
 Clustering (cluttering in linear probing having same hash)
@@ -96,4 +108,3 @@ Expected no. of probes required = 1/(1 - alpha)
 
 Deleted slots (-2) -> point to dummy node
 Empty slots (-1) -> point to NULL
-
