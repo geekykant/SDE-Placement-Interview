@@ -2,15 +2,14 @@
 
 Strings are an array of chars. 'string' datatype is used in C++. ASCII has **max value - 256 characters**, such that:
 
-A - 65
-a - 97 (+32)
-.
-.
-and so on
+A - 65 \
+a - 97 (+32) \
+. \
+. \
+and so on \
 
 #1. Check whether two strings are anagram.
 
-Eg.
 ```
 string a = "aabacc";
 string b = "ccabaa";
