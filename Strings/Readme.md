@@ -8,6 +8,27 @@ a - 97 (+32) \
 . \
 and so on.
 
+### Pre-processing algorithms
+1. Robin Karp - O((n-m+1)xm) (**Compares hash of each window**)
+2. KMP - O(n) (**Reduces redundancy and searches only extra ends**)
+
+**KMP**
+- Computes longest Proper Prefix/Suffics 
+- It creates lps[] = if longest prefix = longest suffix
+
+```
+A B A B
+0 0 1 2
+
+A A A A
+0 1 2 3
+```
+
+Suffix Tree - A [Trie](https://www.geeksforgeeks.org/trie-insert-and-search/) of all suffixes in basic form. 
+- O(m) in worst case.
+- Better for fixed text (eg. Bhagavad geetha, Shakespeare's novel)
+
+
 #1. Check whether two strings are anagram.
 
 ```
