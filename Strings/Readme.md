@@ -6,7 +6,7 @@ A - 65 \
 a - 97 (+32) \
 . \
 . \
-and so on \
+and so on.
 
 #1. Check whether two strings are anagram.
 
@@ -38,3 +38,5 @@ bool isAnagram(string a, string b) {
 	return true;
 }
 ```
+
+
