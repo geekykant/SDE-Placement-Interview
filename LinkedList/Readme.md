@@ -77,5 +77,24 @@ Node* deleteFirst(Node *head) {
 
 #5. Insert in a sorted array
 
+#6. Remove nth element from end
 
+```cpp
+int elementFromEnd(Node *head, int pos) {
+	Node *cur = head;
+	int n;
+
+	while (cur != NULL) {
+		n++;
+		cur = cur->next;
+	}
+
+	if (pos > n) return -1;
+
+	for (int i = 0; i < n - pos - 1; i++) 
+		head = head->next;
+
+	return head->data;
+}
+```
 
