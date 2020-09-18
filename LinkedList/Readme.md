@@ -1,5 +1,16 @@
 ## Linked List in C++
 
+### Single Linked List
+- **`head` is the key**
+- Insertion at start - O(1)
+- Searching & Inserting at end - O(N)
+
+### Circular Linked List
+- **`tail` is the key**
+- Insertion a beginning, end - O(1)
+- Searching - O(N)
+- Advantages for **[Round Robin Algorithm](https://www.geeksforgeeks.org/program-round-robin-scheduling-set-1/)**
+
 **Basic Code**
 ```cpp
 struct Node {
@@ -98,3 +109,38 @@ int elementFromEnd(Node *head, int pos) {
 }
 ```
 
+## Circular Linked List
+
+```cpp
+void printAll(Node *head) {
+	if (head == NULL) return;
+
+	cout << head->data << " ";
+	Node *cur = head->next;
+
+	while (cur != head) {
+		cout << cur->data << " ";
+		cur = cur->next;
+	}
+	cout << endl;
+}
+```
+
+
+#1. Insert at Head
+```cpp
+Node* insertAtHead(Node *head, int x) {
+	Node *temp = new Node(x);
+
+	if (head == NULL) {
+		temp->next = temp;
+		return temp;
+	} else {
+		swap(head->data, temp->data);
+
+		temp->next = head->next;
+		head->next = temp;
+		return head;
+	}
+}
+```
