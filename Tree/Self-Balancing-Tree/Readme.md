@@ -34,3 +34,38 @@ void levelOrderTraversal(Node *root) {
 	}
 }
 ```
+
+### Red-Black Tree
+- Loose & Less frequent restructuring
+- Good for less insertion & deletion
+- Every node is either RED or BLACK
+- root is always **BLACK**
+- No two consecutive REDS
+- Black heigh should be same through all descended trees
+
+#### Applications
+- Maintain sorted stream of data
+- implement double ended priority queue (Sets, Maps - C++)
+
+```cpp
+map<int, int> m;
+
+m.insert({3, 50});
+//wont bechanged
+m.insert({3, 40});
+
+m.insert({1, 10});
+for (auto x : m)
+	cout << x.first << " " << x.second << endl;
+	
+cout<<m[20]; //will be inserted instantly to [0]
+
+//Ouput
+//1 10
+//3 50
+//0
+
+// m[3] = 99; can be used to update
+// m.at(3) = 300 gets reference only when present
+```	
+
