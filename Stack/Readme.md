@@ -31,3 +31,8 @@ while(!s.empty()){
 }
 
 ```
+Implementation
+- Stack can be implemented using either **Array or Linked List**
+
+
+
