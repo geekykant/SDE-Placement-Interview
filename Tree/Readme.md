@@ -181,6 +181,45 @@ vector<int> postorderTraversal(TreeNode* root) {
 }
 ```
 
+**All in One Traversal**
+```cpp
+vector<int> allInOneTraversal(TreeNode* root) {
+    stack<pair<TreeNode*, int>> st;
+    st.push({root, 1});
+    vector<int> pre, in, post;
+    
+    while(!st.empty()){
+        auto it = st.top();
+        st.pop();
+
+        // pre order
+        // increment++ (1 -> 2)
+        // check left and push
+        if(it.second == 1){
+            pre.push_back(it.first->val);
+            it.second++;
+            st.push(it);
+            if(it.first->left)
+                st.push({it.first->left, 1});
+        }
+        // in order
+        // increment++ (2 -> 3)
+        // check left and push
+        else if(it.second == 2){
+            in.push_back(it.first->val);
+            it.second++;
+            st.push(it);
+            if(it.first->right)
+                st.push({it.first->right, 1});
+        }
+        // post order
+        else {
+            post.push_back(it.first->val);
+        }
+    }
+}
+```
+
 **Size of Binary Tree**
 ```cpp
 int btreesize(Node *root) {
