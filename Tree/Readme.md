@@ -41,12 +41,22 @@ int main() {
 - Postorder (Left -> Right -> Root)
 
 **Level Order Traversal (BFS)**
+```
+     1
+  2    3
+4  5  6 7
+
+Ouput: [[1],[2,3],[4,5,6,7]]
+```
+
 ```cpp
 vector<int> getLevelOrder(BinaryTreeNode<int> *root) {
     vector<int> ans;
     if (root == NULL) return ans;
+    
     queue<BinaryTreeNode<int>*> q;
     q.push(root);
+    
     while (!q.empty()) {
         BinaryTreeNode<int>* temp = q.front();
         q.pop();
