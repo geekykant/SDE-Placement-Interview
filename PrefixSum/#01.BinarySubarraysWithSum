@@ -1,0 +1,32 @@
+### #1. Binary Subarrays With Sum
+
+```
+Input: nums = [1,0,1,0,1], goal = 2
+Output: 4
+Explanation: The 4 subarrays are bolded and underlined below:
+[1,0,1,0,1]
+[1,0,1,0,1]
+[1,0,1,0,1]
+[1,0,1,0,1]
+```
+
+Leetcode - https://leetcode.com/problems/binary-subarrays-with-sum/
+Video visualization is best - https://www.youtube.com/watch?v=20v8zSo2v18
+
+```cpp
+int numSubarraysWithSum(vector<int>& nums, int goal) {
+    int res = 0, sum = 0;
+    map<int, int> mp;
+    mp[0] = 1;
+
+    for (auto num : nums) {
+        sum += num;
+        if (mp.find(sum - goal) != mp.end()) {
+            res += mp[sum - goal];
+        }
+        mp[sum]++;
+    }
+
+    return res;
+}
+```
