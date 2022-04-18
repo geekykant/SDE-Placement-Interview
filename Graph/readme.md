@@ -1,7 +1,14 @@
 ## Graph Theory
 
 - Very important concept, specially for visualized problems
-- DFS and BFS are main traversal methods here
+- **DFS and BFS** are main traversal methods.
+
+(Playlist link: https://www.youtube.com/playlist?list=PLgUwDviBIf0rGEWe64KWas0Nryn7SCRWw)
+
+#### Graph Representation
+- (Adjacency) Matrix
+- Edge List (u,v)
+- Adjacency List (mostly used)
 
 **DFS**
 ```cpp
