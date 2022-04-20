@@ -90,6 +90,7 @@ bool validPath(int n, vector<vector<int>>& edges, int source, int dest) {
 
 Output: 5 4 2 3 1 0 
 
+**DFS Topological Sort**
 ```cpp
 stack<int> st; //stack makes sure LIFO order (u,v)
 
@@ -115,5 +116,36 @@ int driver(vector<vector<int>>& graph, vector<int>& visited, int n) {
     }
     // printVectors(res); -> 5 4 2 3 1 0 
 }
+```
 
+**BFS Topological Sort**
+```cpp
+void topoSort(vector<vector<int>>& graph, int n) {
+    vector<int> indegree(n);
+    queue<int> q;
+
+    //count indegrees
+    for (int i = 0; i < n; i++)
+        for (auto it : graph[i])
+            indegree[it]++;
+
+    //add non-dependent (0 indegree) to queue
+    for (int i = 0; i < n; i++)
+        if (indegree[i] == 0)
+            q.push(i);
+
+    vector<int> res;
+    while (!q.empty()) {
+        int node = q.front(); q.pop();
+        res.push_back(node);
+
+        for (int neighbour : graph[node]) {
+            indegree[neighbour]--;
+            if (indegree[neighbour] == 0)
+                q.push(neighbour);
+        }
+    }
+    
+    // printVectors(res); -> 4 5 0 2 3 1 
+}
 ```
