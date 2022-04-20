@@ -82,15 +82,17 @@ bool validPath(int n, vector<vector<int>>& edges, int source, int dest) {
 ```
 
 #### Topological Sort
+ - Linear ordering of vertices
  - Topological sort makes sures u -> v (u comes before v) order is followed in traversal.
  - Applicable only to DAG (Directed Acyclic Graph)
  - Multiple answers possible
+ - Can be used for "cycle detection" using Kahn's Algo BFS (altho not recommended)
 
 <img width="435" alt="Screenshot 2022-04-20 at 10 44 12 AM" src="https://user-images.githubusercontent.com/27401142/164155262-04bb8405-4f0c-45e5-9890-9c3104919f10.png">
 
 Output: 5 4 2 3 1 0 
 
-**DFS Topological Sort**
+**DFS - Topological Sort**
 ```cpp
 stack<int> st; //stack makes sure LIFO order (u,v)
 
@@ -118,7 +120,8 @@ int driver(vector<vector<int>>& graph, vector<int>& visited, int n) {
 }
 ```
 
-**BFS Topological Sort**
+**BFS - Topological Sort** (Kahn's Algorithm)
+> You can use this technique for cycle detection (cnt == N) [Cycle Detection Using Kahn's Algorithm]()
 ```cpp
 void topoSort(vector<vector<int>>& graph, int n) {
     vector<int> indegree(n);
