@@ -159,7 +159,7 @@ void topoSort(vector<vector<int>>& graph, int n) {
 - Less rank child tree nodes are attached to higher rank node
 - Time Complexity: O(4α) - close to constant time
 
-``cpp
+```cpp
 vector<int> parent;
 vector<int> myrank;
 
