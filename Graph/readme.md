@@ -121,7 +121,7 @@ int driver(vector<vector<int>>& graph, vector<int>& visited, int n) {
 ```
 
 **BFS - Topological Sort** (Kahn's Algorithm)
-> You can use this technique for cycle detection (cnt == N) [Cycle Detection Using Kahn's Algorithm]()
+> You can use this technique for cycle detection (cnt == N) (not recommended)
 ```cpp
 void topoSort(vector<vector<int>>& graph, int n) {
     vector<int> indegree(n);
@@ -150,5 +150,61 @@ void topoSort(vector<vector<int>>& graph, int n) {
     }
     
     // printVectors(res); -> 4 5 0 2 3 1 
+}
+```
+
+#### Disjoint Set - Union By Rank, Path Compression
+- Can check if belongs to same component
+- Two operations - findParent(), Union()
+- Less rank child tree nodes are attached to higher rank node
+- Time Complexity: O(4α) - close to constant time
+
+``cpp
+vector<int> parent;
+vector<int> myrank;
+
+int findParent(int node) {
+    if (node == parent[node])
+        return node;
+
+    //path compression using -> parent[node]
+    return parent[node] = findParent(parent[node]);
+}
+
+void setUnion(int u, int v) {
+    //find parent
+    u = findParent(u);
+    v = findParent(v);
+
+    //lesser rank attached to higher ones
+    if (myrank[u] < myrank[v])
+        parent[u] = v;
+    else if (myrank[v] < myrank[u])
+        parent[v] = u;
+    else {
+        parent[v] = u;
+        myrank[u]++;
+    }
+}
+
+void disjointSet(vector<vector<int>> edgeList, int n) {
+    parent.resize(n + 1);
+    myrank.resize(n + 1);
+
+    for (int i = 1; i <= n; i++)
+        parent[i] = i;
+
+    for (auto edge : edgeList) {
+        int u = edge[0], v = edge[1];
+        setUnion(u, v);
+    }
+
+    if (findParent(2) != findParent(3))
+        cout << "Different component" << endl;
+    else
+        cout << "Same component" << endl;
+
+    //printVectors(parent);
+    //printVectors(myrank);
 }
 ```
