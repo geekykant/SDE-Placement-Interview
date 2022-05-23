@@ -39,7 +39,20 @@ void quickSort(vector<int>& nums, int l, int r) {
 }
 ```
 
-#### 3. Merge Sort - O(Nlogn)
+#### 3. Selection Sort - O(Nlogn)
+```cpp
+void sortSelection(vector<int>& nums) {
+    for (int i = 0; i < nums.size(); i++) {
+        int minJ = i;
+        for (int j = i; j < n; j++)
+            if (nums[j] < nums[minJ])
+                minJ = j;
+        swap(nums[i], nums[minJ]);
+    }
+}
+```
+
+#### 4. Merge Sort - O(Nlogn)
 
 ```cpp
 void merge(vector<int>& nums, int l, int m, int r) {
