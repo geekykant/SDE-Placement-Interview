@@ -39,7 +39,7 @@ void quickSort(vector<int>& nums, int l, int r) {
 }
 ```
 
-#### 3. Selection Sort - O(Nlogn)
+#### 3. Selection Sort - O(N^2)
 ```cpp
 void sortSelection(vector<int>& nums) {
     for (int i = 0; i < nums.size(); i++) {
