@@ -65,10 +65,10 @@ int fillSTValues(vector<int>& nums, vector<int>& st, int start, int end, int idx
 void buildST(vector<int>& nums, vector<int>& st) {
     //allocate memory for segement tree
     int n = nums.size();
-    int x = (int)(ceil(log2(n)));
+    int x = ceil(log2(n));
 
     //Maximum size of segment tree
-    int max_size = 2 * (int)pow(2, x) - 1;
+    int max_size = 2 * pow(2, x) - 1;
 
     st.resize(max_size);
     fillSTValues(nums, st, 0, n - 1, 0);
