@@ -34,5 +34,33 @@ while(!s.empty()){
 Implementation
 - Stack can be implemented using either **Array or Linked List**
 
+**Monotoically Increasing**
 
+Method 1:
+```cpp
+stack<int> st;
+unordered_map<int, int> nextGreater;
+for(int i=nums2.size()-1; i >= 0; i--){
+    while(!st.empty() && nums2[i] >= nums2[st.top()]) st.pop();
+    if(st.empty())
+        nextGreater[nums2[i]] = -1;
+    else
+        nextGreater[nums2[i]] = nums2[st.top()];
+
+    st.push(i);
+}
+```
+
+Method 2:
+```cpp
+unordered_map<int, int> nextGreater;
+stack<int> st;
+for(int num: nums2){
+    while(!st.empty() && num > st.top()){
+        nextGreater[st.top()] = num;
+        st.pop();
+    }
+    st.push(num);
+}
+```
 
