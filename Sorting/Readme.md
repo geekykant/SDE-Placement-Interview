@@ -1,15 +1,16 @@
 ### Sorting Techniques
 
 #### 1. Bubble Sort - O(N^2)
+* Run loop N times, and each time (j+1) > (j) element, swap
 
 ```cpp
 void sortNums(vector<int> &nums) {
-	int n = nums.size();
+    int n = nums.size();
 
-	for (int i = 0; i < n; i++)
-		for (int j = 0; j < n - i - 1; j++)
-			if (nums[j] > nums[j + 1])
-				swap(nums[j], nums[j + 1]);
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < n - i - 1; j++)
+            if (nums[j] > nums[j + 1])
+                swap(nums[j], nums[j + 1]);
 }
 ```
 
@@ -40,6 +41,7 @@ void quickSort(vector<int>& nums, int l, int r) {
 ```
 
 #### 3. Selection Sort - O(N^2)
+* For each index - i, find next min element and swap
 ```cpp
 void sortSelection(vector<int>& nums) {
     for (int i = 0; i < nums.size(); i++) {
