@@ -54,7 +54,28 @@ void sortSelection(vector<int>& nums) {
 }
 ```
 
-#### 4. Merge Sort - O(Nlogn)
+#### 4. Insertion Sort ~O(N^2)
+* Start from 2nd element, ensure left-side elements are sorted
+* Either swap or shift elements to right
+
+```cpp
+void insertionSort(vector<int> &nums) {
+    int n = nums.size();
+    //take 2nd element, and ensure the previous elements are sorted
+    for (int i = 1; i < n; i++) {
+        int cur = nums[i], j = i - 1;
+
+        //shifiting elements to right
+        while (j >= 0 && nums[j] > cur) {
+            nums[j + 1] = nums[j]; //OR swap(nums[j + 1],nums[j])
+            j--;
+        }
+        nums[j + 1] = cur;
+    }
+}
+```
+
+#### 5. Merge Sort - O(Nlogn)
 
 ```cpp
 void merge(vector<int>& nums, int l, int m, int r) {
