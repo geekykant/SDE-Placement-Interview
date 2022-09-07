@@ -1,9 +1,85 @@
-#### Binary Search
-- Sorted Array
-- Used for Search
-- Can Solve Monotonically Inc problems
+### Binary Search
+* Sorted Array
+* Used for Search
+* Can Solve Monotonically Inc problems
 
-##### Basic Working
+Best Explanation - [Striver Binary Search Master class](https://youtu.be/SpS9dMj0B_Y?t=4411)
+
+##### Important Codes
+1. Basic Searching
+```cpp
+int searchForElement() {
+    vector<int> nums = {1, 2, 3, 4, 6};
+    int target = 4;
+
+    int lo = 0, hi = nums.size() - 1;
+    while (lo <= hi) {
+        int mid = lo + (hi - lo) / 2;
+        if (nums[mid] == target) return mid;
+        else if (nums[mid] < target)
+            lo = mid + 1;
+        else
+            hi = mid - 1;
+    }
+    return -1;
+}
+```
+
+2. Lower Bound Search ( >= target)
+```cpp
+void lowerBound() {
+    vector<int> nums = {1, 2, 3, 4, 6};
+    int target = 6, n = nums.size();
+
+    int lo = 0, hi = n - 1;
+    int res = n; // important
+    
+    while (lo <= hi) {
+        int mid = lo + (hi - lo) / 2;
+        if (nums[mid] >= target) {
+            res = mid;
+            hi = mid - 1;
+        } else
+            lo = mid + 1;
+    }
+
+    if (res == n)
+        cout << "No lower bound element" << endl;
+    else
+        cout << "Lower bound element: " << nums[res] << endl; //Output: 6
+}
+```
+
+3. Upper Bound Search ( > target)
+```cpp
+void upperBound() {
+    vector<int> nums = {1, 2, 3, 4, 6};
+    int target = 3, n = nums.size();
+
+    int lo = 0, hi = n - 1;
+    int res = n; //important
+    
+    while (lo <= hi) {
+        int mid = lo + (hi - lo) / 2;
+        if (nums[mid] <= target)
+            lo = mid + 1;
+        else {
+            res = mid;
+            hi = mid - 1;
+        }
+    }
+
+    if (res == n)
+        cout << "No higher bound element" << endl;
+    else
+        cout << "Higher bound element: " << nums[res] << endl; //Output: 4
+}
+```
+
+----
+> Extra Theories
+
+**Basic Working**
 When using Binary Search, it looks like to find the first T or the last F in FFFFFTTTTTTTTTTTT.(T means TRUE while F means FALSE.)
 
 l <= r
