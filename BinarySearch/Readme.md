@@ -3,8 +3,6 @@
 * Used for Search
 * Can Solve Monotonically Inc problems
 
-Best Explanation - [Striver Binary Search Master class](https://youtu.be/SpS9dMj0B_Y?t=4411)
-
 ##### Important Codes
 1. Basic Searching
 ```cpp
@@ -31,22 +29,19 @@ void lowerBound() {
     vector<int> nums = {1, 2, 3, 4, 6};
     int target = 6, n = nums.size();
 
-    int lo = 0, hi = n - 1;
-    int res = n; // important
-    
-    while (lo <= hi) {
+    int lo = 0, hi = n;
+    while (lo < hi) {
         int mid = lo + (hi - lo) / 2;
-        if (nums[mid] >= target) {
-            res = mid;
-            hi = mid - 1;
-        } else
+        if (nums[mid] >= target)
+            hi = mid;
+        else
             lo = mid + 1;
     }
 
-    if (res == n)
+    if (lo == n)
         cout << "No lower bound element" << endl;
     else
-        cout << "Lower bound element: " << nums[res] << endl; //Output: 6
+        cout << "Lower bound element: " << nums[lo] << endl; //Output: 6
 }
 ```
 
@@ -56,23 +51,19 @@ void upperBound() {
     vector<int> nums = {1, 2, 3, 4, 6};
     int target = 3, n = nums.size();
 
-    int lo = 0, hi = n - 1;
-    int res = n; //important
-    
+    int lo = 0, hi = n;
     while (lo <= hi) {
         int mid = lo + (hi - lo) / 2;
         if (nums[mid] <= target)
             lo = mid + 1;
-        else {
-            res = mid;
+        else
             hi = mid - 1;
-        }
     }
 
-    if (res == n)
+    if (lo == n)
         cout << "No higher bound element" << endl;
     else
-        cout << "Higher bound element: " << nums[res] << endl; //Output: 4
+        cout << "Higher bound element: " << nums[lo] << endl; //Output: 4
 }
 ```
 
