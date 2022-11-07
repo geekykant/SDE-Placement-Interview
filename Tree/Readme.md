@@ -137,18 +137,19 @@ vector<int> inorderTraversal(TreeNode* root) {
 
 **Iterative Preorder**
 ```cpp
-void interativePreorder(Node *root) {
-	stack<Node*> s;
-	s.push(root);
+vector<int> iterativePreorder(TreeNode* root) {
+    vector<int> res;
+    if(!root) return res;
+    stack<TreeNode*> st;
+    st.push(root);
+    while(!st.empty()){
+        root = st.top(); st.pop();
+        res.push_back(root->val);
 
-	while (!s.empty()) {
-		Node *cur = s.top();
-		cout << cur->key << " ";
-		s.pop();
-
-		if (cur->right != NULL) s.push(cur->right);
-		if (cur->left != NULL) s.push(cur->left);
-	}
+        if(root->right) st.push(root->right);
+        if(root->left) st.push(root->left);
+    }
+    return res;
 }
 ```
 
