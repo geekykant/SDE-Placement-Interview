@@ -122,6 +122,8 @@ int driver(vector<vector<int>>& graph, vector<int>& visited, int n) {
 
 **BFS - Topological Sort** (Kahn's Algorithm)
 > You can use this technique for cycle detection (cnt == N) (not recommended)
+
+> Works only in "Directed graph"
 ```cpp
 void topoSort(vector<vector<int>>& graph, int n) {
     vector<int> indegree(n);
