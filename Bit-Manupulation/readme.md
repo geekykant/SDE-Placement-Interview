@@ -15,3 +15,7 @@ pair<int, int> swap(int a, int b) {
 
 **Check if the ith bit is set**
 > num & (1 << i)
+
+OR
+
+> num >> i & 1
