@@ -1,12 +1,11 @@
 ### Sorting Techniques
 
 #### 1. Bubble Sort - O(N^2)
-* Run loop N times, and each time (j+1) > (j) element, swap
-
 - In each iteration, we check the adjacent elements - nums[j] and nums[j+1] - and keep swapping.
 - Thus we move the largest element to the right end.
-- Optimization we could add is swapping flag, that check if j and j+1 swap has occurred, if not stop entirely.
+- Optimization we could add is a swapping flag, that check if j and j+1 swap has occurred, if not stop entirely - as the array will be already sorted.
 
+**C++**
 ```cpp
 void sortNums(vector<int> &nums) {
     int n = nums.size();
@@ -18,29 +17,30 @@ void sortNums(vector<int> &nums) {
 }
 ```
 
+**Python**
 ```python
 nums = [7,3,2,6,5,9]
 n = len(nums)
 
 #Un-optimized
 def bubbleSort():
-	for i in range(n):
-		for j in range(0, n-i-1):
-			if nums[j] > nums[j+1]:
-				nums[j], nums[j+1] = nums[j+1], nums[j]
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if nums[j] > nums[j+1]:
+                nums[j], nums[j+1] = nums[j+1], nums[j]
 
 #Optimized
 def bubbleSort():
-	swapped = False
+    swapped = False
 
-	for i in range(n-1):
-		for j in range(0, n-i-1):
-			if nums[j] > nums[j+1]:
-				swapped = True
-				nums[j], nums[j+1] = nums[j+1], nums[j]
+    for i in range(n-1):
+        for j in range(0, n-i-1):
+            if nums[j] > nums[j+1]:
+                swapped = True
+                nums[j], nums[j+1] = nums[j+1], nums[j]
 
-			if not swapped:
-				return
+            if not swapped:
+                return
 ```
 
 #### 2. Quick Sort - O(N^2)
